@@ -1,0 +1,160 @@
+.window {
+  /* position */
+  position: fixed;
+  /* top: 50%;
+  left: 50%;
+  translate: -50% -50%; */
+
+  /* flex */
+  display: flex;
+  flex-direction: column;
+
+  /* styling */
+  border-radius: 0.5rem;
+  background-color: var(--background-200);
+  overflow: clip;
+}
+
+.window.inFocus {
+  z-index: 500;
+}
+
+.window.fullscreen {
+  /* position */
+  inset: 0 !important;
+  translate: 0 0;
+
+  /* sizing */
+  width: 100vw;
+  height: calc(100vh - 4rem);
+
+  /* styling */
+  border-radius: 0rem;
+}
+
+.window > .toolbar {
+  /* sizing */
+  width: 100%;
+  height: 30px;
+
+  /* flex */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window:global(.draggable) > .toolbar {
+  cursor: move;
+}
+
+.window > .toolbar .title {
+  /* spacing */
+  padding-left: 0.75rem;
+
+  /* text */
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1;
+
+  /* no-select */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.window > .toolbar .group {
+  /* sizing */
+  height: 100%;
+
+  /* flex */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.window > .toolbar button {
+  /* sizing */
+  width: 3rem;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  /* styling */
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.window > .toolbar button:hover {
+  background-color: var(--background-400);
+}
+
+.window > .toolbar button.close:hover {
+  background-color: darkred;
+}
+
+.window > .toolbar button .icon {
+  /* sizing */
+  font-size: 1rem;
+}
+
+.window > .container {
+  /* sizing */
+  margin: 0.25rem;
+  padding: 0.75rem;
+  flex-grow: 1;
+  min-width: 350px;
+  min-height: 100px;
+  max-width: calc(100% - 0.5rem);
+
+  /* styling */
+  background-color: var(--background-100);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.window > .toolbar + .container {
+  /* sizing */
+  margin-top: 0;
+}
+
+.window > .container.resizeable {
+  resize: both;
+}
+
+.window.fullscreen > .container {
+  border-radius: 0.5rem;
+  width: calc(100% - 0.5rem) !important;
+  height: 100% !important;
+}
+
+.window {
+  opacity: 1;
+  scale: 1;
+  animation: fade-in 200ms ease;
+  transition: opacity 200ms ease, scale 200ms ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    scale: 0.9;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.window.notVisible {
+  opacity: 0;
+  scale: 0.9;
+}

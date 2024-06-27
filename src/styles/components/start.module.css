@@ -1,0 +1,177 @@
+.startBackground {
+  /* position */
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+}
+
+.start {
+  /* position */
+  position: fixed;
+  bottom: 4.5rem;
+  left: 0.5rem;
+  z-index: 999;
+
+  /* sizing */
+  width: 1000px;
+  height: 700px;
+
+  /* styling */
+  background-color: var(--background-200);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.startBackground,
+.start {
+  /* hiding */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, translate 200ms ease;
+}
+
+.start { 
+  translate: -100% 0 ;
+}
+
+.startBackground:global(.visibletrue),
+.start:global(.visibletrue) {
+  opacity: 1;
+  pointer-events: all;
+  translate: 0 0;
+}
+
+.start > .container {
+  /* sizing */
+  padding: 0.5rem;
+  height: 100%;
+
+  /* grid */
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 1rem;
+}
+
+.start > .container button {
+  /* styling */
+  border: none;
+  background-color: var(--background-400);
+  color: var(--text);
+  border-radius: 0.25rem;
+
+  /* text */
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.start > .container > .list {
+  /* sizing */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.start > .container > .list > button {
+  /* sizing */
+  height: 2.5rem;
+  padding: 0.25rem 0.5rem;
+
+  /* grid */
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  place-items: center;
+}
+
+.start > .container > .list > button .icon {
+  /* sizing */
+  width: 100%;
+  height: 100%;
+  color: inherit;
+}
+
+.start > .container > .list > button .icon svg {
+  /* styling */
+  fill: currentColor;
+  color: inherit;
+}
+
+.start > .container > .tiles {
+  /* variables */
+  --_size: 100px;
+
+  /* sizing */
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--_size));
+  grid-template-rows: repeat(auto-fill, var(--_size));
+  gap: 0.5rem;
+
+  /* styling */
+  overflow-y: scroll;
+}
+
+.start > .container > .tiles > button {
+  /* position */
+  position: relative;
+
+  /* sizing */
+  width: 100%;
+  height: 100%;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start > .container > .tiles > button > .icon svg {
+  /* sizing */
+  --_size: 2.5rem;
+  width: var(--_size);
+  height: var(--_size);
+
+  /* styling */
+  fill: currentColor;
+  color: inherit;
+}
+
+.start > .container > .tiles > button > .name {
+  /* position */
+  position: absolute;
+  bottom: 0.25rem;
+  left: 50%;
+  translate: -50% 0;
+
+  /* sizing */
+  width: 100%;
+
+  /* text */
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.start > .container > .tiles > button.wide {
+  height: var(--_size);
+  grid-column: auto / span 3;
+}
+
+.start > .container > .tiles > button.large {
+  grid-column: auto / span 2;
+  grid-row: auto / span 2;
+  aspect-ratio: 1/1;
+}
+
+.start > .container > .tiles > button.large svg {
+  --_size: 5rem;
+}
