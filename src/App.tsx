@@ -3,6 +3,7 @@ import Start from "./components/Start";
 import Taskbar from "./components/Taskbar";
 import AboutApp from "./apps/About";
 import { atom, useAtomValue } from "jotai";
+import { atomWithStorage} from "jotai/utils"
 import { v4 as uuidv4 } from "uuid";
 import Background from "./components/Background";
 
@@ -29,7 +30,7 @@ export const runningAppsAtom = atom([
   },
 ]);
 
-export const settingsAtom = atom<{
+export const settingsAtom = atomWithStorage<{
   forceTitleBarStyle: undefined | string;
   background: {
     type: string;
@@ -37,7 +38,7 @@ export const settingsAtom = atom<{
     imageURL?: string;
     iframeURL?: string;
   };
-}>({
+}>("settings", {
   forceTitleBarStyle: undefined,
   background: {
     type: "image",
