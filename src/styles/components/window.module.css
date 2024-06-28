@@ -12,11 +12,16 @@
   /* styling */
   border-radius: 0.5rem;
   background-color: var(--background-200);
-  overflow: clip;
+  -webkit-box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.125);
 }
 
 .window.inFocus {
   z-index: 500;
+  -webkit-box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 1rem 0.5rem rgba(0, 0, 0, 0.25);
 }
 
 .window.fullscreen {
@@ -42,15 +47,15 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
 
-.window:global(.draggable) > .toolbar {
-  cursor: move;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .window > .toolbar .title {
   /* spacing */
-  padding-left: 0.75rem;
+  padding-inline: 0.75rem;
 
   /* text */
   font-size: 0.8rem;
@@ -136,8 +141,6 @@
 }
 
 .window {
-  opacity: 1;
-  scale: 1;
   animation: fade-in 200ms ease;
   transition: opacity 200ms ease, scale 200ms ease;
 }
@@ -157,4 +160,197 @@
 .window.notVisible {
   opacity: 0;
   scale: 0.9;
+  pointer-events: none;
+}
+
+.window > .macToolbar {
+  /* sizing */
+  width: 100%;
+  height: 1.5rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window > .macToolbar .title {
+  /* spacing */
+  padding-inline: 0.75rem;
+
+  /* text */
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1;
+
+  /* no-select */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.window > .macToolbar .group {
+  /* sizing */
+  height: 100%;
+  margin-inline: 0.5rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25rem;
+
+  pointer-events: none;
+}
+
+.window > .macToolbar button {
+  /* sizing */
+  --_size: 0.75rem;
+  width: var(--_size);
+  height: var(--_size);
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  /* styling */
+  border: none;
+  background-color: #00ca4e;
+  color: black;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+.window > .macToolbar button.fullscreen {
+  background-color: #ffbd44;
+}
+
+.window > .macToolbar button.close {
+  background-color: #ff605c;
+}
+
+.window > .macToolbar button.close:hover {
+  background-color: darkred;
+}
+
+.window > .macToolbar button .icon {
+  /* sizing */
+  font-size: 0.5rem;
+
+  /* hiding */
+  opacity: 0;
+  transition: opacity 100ms ease;
+}
+
+.window > .macToolbar button:hover .icon {
+  opacity: 1;
+}
+
+.window > .macToolbar + .container {
+  /* sizing */
+  margin-top: 0;
+}
+
+.window > .dexToolbar {
+  /* position */
+  position: relative;
+
+  /* sizing */
+  width: 100%;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.window > .dexToolbar .button {
+  /* sizing */
+  width: 5rem;
+  height: 0.75rem;
+
+  /* styling */
+  background-color: var(--background-500);
+  border: none;
+  border-radius: 2rem;
+  border: 0.25rem solid var(--background-200);
+  
+}
+
+.window > .dexToolbar .group {
+  /* position */
+  position: absolute;
+  bottom: -0.25rem;
+
+  /* sizing */
+  /* padding: 0.35rem 0.6rem; */
+
+  /* flex */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25rem;
+
+  /* styling */
+  background-color: var(--background-100);
+  outline: 0.25rem solid var(--background-200);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.window.fullscreen > .dexToolbar .group {
+  bottom: auto;
+  top: 0.25rem;
+}
+
+.window > .dexToolbar .group button {
+  /* sizing */
+  width: 2rem;
+  height: 1.5rem;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  /* styling */
+  border: none;
+  color: inherit;
+  pointer-events: auto;
+  background-color: transparent;
+}
+
+.window > .dexToolbar .group button:hover {
+  background-color: #00ca4e;
+}
+
+.window > .dexToolbar .group button.default:hover {
+  background-color: var(--background-500);
+}
+
+.window > .dexToolbar button.fullscreen:hover {
+  background-color: #ffbd44;
+}
+
+.window > .dexToolbar button.close:hover {
+  background-color: #ff605c;
+}
+
+.window > .dexToolbar button .icon {
+  /* sizing */
+  font-size: 0.65rem;
+}
+
+.window > .dexToolbar + .container {
+  /* sizing */
+  margin-top: 0;
 }

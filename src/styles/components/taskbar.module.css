@@ -11,11 +11,20 @@
   /* flex */
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 1rem;
 
   /* styling */
   background-color: var(--background-200);
   color: var(--text);
+}
+
+.taskbar .right,
+.taskbar .left {
+  /* flex */
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 .runningApps {
@@ -46,11 +55,50 @@
   color: inherit;
 }
 
+.taskbarItem.hideAll {
+  width: 0.75rem;
+  padding: 0;
+  background-color: var(--background-300);
+}
+
+.taskbarItem.hideAll span.name {
+  /* position */
+  translate: 0 0;
+  left: auto;
+  right: 0;
+}
+
+.taskbarItem.clock {
+  width: 5rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.taskbarItem.clock .time {
+  /* text */
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.taskbarItem.clock .date {
+  /* text */
+  font-size: 0.65rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
 .taskbarItem svg {
   color: inherit;
   fill: currentColor;
 }
 
+.taskbarItem .isPin,
 .taskbarItem .isOpen {
   /* position */
   position: absolute;
@@ -67,6 +115,10 @@
   border-radius: 4rem;
 }
 
+.taskbarItem .isPin {
+  width: 0.125rem;
+}
+
 .taskbarItem span.name {
   /* position */
   position: absolute;
@@ -76,6 +128,7 @@
 
   /* sizing */
   padding: 0.25rem 0.5rem;
+  width: max-content;
 
   /* text */
   font-size: 0.8rem;
@@ -84,7 +137,7 @@
 
   /* styling */
   border-radius: 0.25rem;
-  background-color: white;
+  background-color: var(--background-400);
 
   /* mouse */
   pointer-events: none;
@@ -102,10 +155,6 @@
 .taskbarItem .isOpen:global(.focustrue) {
   /* sizing */
   width: 1rem;
-}
-
-.taskbarItem:global(.pintrue) {
-  background-color: var(--background-300);
 }
 
 .taskbarItem:global(.focustrue) {

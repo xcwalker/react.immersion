@@ -30,8 +30,8 @@
   transition: opacity 200ms ease, translate 200ms ease;
 }
 
-.start { 
-  translate: -100% 0 ;
+.start {
+  translate: -100% 0;
 }
 
 .startBackground:global(.visibletrue),
@@ -65,7 +65,14 @@
   line-height: 1;
 }
 
+.start > .container button:hover {
+  background-color: var(--background-500);
+}
+
 .start > .container > .list {
+  /* position */
+  position: relative;
+
   /* sizing */
   height: 100%;
   margin: 0;
@@ -85,7 +92,8 @@
   /* grid */
   display: grid;
   grid-template-columns: 2rem 1fr;
-  place-items: center;
+  place-items: center flex-start;
+  gap: 0.5rem;
 }
 
 .start > .container > .list > button .icon {
@@ -99,6 +107,58 @@
   /* styling */
   fill: currentColor;
   color: inherit;
+}
+
+.start > .container > .list > .alphabetView {
+  /* position */
+  position: absolute;
+  inset: -0.5rem;
+
+  /* sizing */
+  padding: 1rem;
+
+  /* grid */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, min-content);
+  gap: 1rem;
+
+  /* styling */
+  background-color: var(--background-200);
+  overflow-y: scroll;
+}
+
+.start > .container > .list > .alphabetView > span,
+.start > .container > .list > .alphabetView > button {
+  /* sizing */
+  aspect-ratio: 1/1;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* styling */
+  background-color: var(--background-400);
+  border-radius: 0.25rem;
+}
+
+.start > .container > .list > .alphabetView > span {
+  /* styling */
+  background-color: var(--background-100);
+
+  /* no-select */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.start > .container > .list > .alphabetView > button:hover {
+  background-color: var(--background-500);
+  cursor: pointer;
 }
 
 .start > .container > .tiles {

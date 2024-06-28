@@ -1,0 +1,61 @@
+.container {
+  /* grid */
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 1rem;
+}
+
+.sidebar {
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+}
+
+.sidebar > button {
+  /* sizing */
+  height: 2.25rem;
+  padding: 0.35rem 0.5rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  /* styling */
+  border-radius: 0.5rem;
+  background-color: var(--background-400);
+  color: var(--text);
+  border: none;
+}
+
+.sidebar > button:hover {
+  background-color: var(--background-500);
+}
+
+.sidebar > button > .icon {
+  /* sizing */
+  --_size: 1.55rem;
+  height: var(--_size);
+  width: var(--_size);
+  
+}
+
+.sidebar > button > .icon svg {
+  /* sizing */
+  width: 100%;
+  height: 100%;
+
+  /* styling */
+  fill: currentColor;
+  color: inherit;
+}
+
+.sidebar > button > .name {
+  /* text */
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+}

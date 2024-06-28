@@ -1,0 +1,24 @@
+.background {
+  /* position */
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  /* sizing */
+  width: 100%;
+  height: calc(100% - 4rem);
+
+  /* image */
+  object-fit: cover;
+
+  /* iframe */
+  border: none;
+
+  /* no-select */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
