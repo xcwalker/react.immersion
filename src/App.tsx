@@ -37,12 +37,14 @@ export const settingsAtom = atom<{
     imageURL?: string;
     iframeURL?: string;
   };
+  taskbar: { style: string };
 }>({
   forceTitleBarStyle: undefined,
   background: {
     type: "image",
     imageURL: "https://images.unsplash.com/photo-1461696114087-397271a7aedc",
   },
+  taskbar: { style: "default" },
 });
 
 function App() {

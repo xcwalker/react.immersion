@@ -20,3 +20,26 @@
   font-weight: 600;
   line-height: 1;
 }
+
+.advancedContainer {
+  /* grid */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.advancedContainer button {
+  /* styling */
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--background-400);
+  color: inherit;
+}
+
+.advancedContainer button:hover {
+  background-color: var(--background-500);
+}
+
+.advancedContainer button:active {
+  background-color: var(--background-300);
+}

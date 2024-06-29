@@ -8,45 +8,22 @@ export default function SettingsApp(props: { uuid: string }) {
   const [page, setPage] = useState("titlebar");
   const [settings, setSettings] = useAtom(settingsAtom);
 
-  function setForcedTitleBar(setting: undefined | string) {
+  function setSetting(setting: string, newValue: undefined | string) {
     setSettings((prev) => {
       const item = { ...prev };
-      item.forceTitleBarStyle = setting;
+      item[setting] = newValue;
       return item;
     });
   }
 
-  function setBackgroundType(setting: string) {
+  function setBackgroundSetting(setting: string, newValue: string) {
     setSettings((prev) => {
       const item = { ...prev };
-      item.background.type = setting;
+      item.background[setting] = newValue;
       return item;
     });
   }
 
-  function setBackgroundColor(setting: undefined | string) {
-    setSettings((prev) => {
-      const item = { ...prev };
-      item.background.color = setting;
-      return item;
-    });
-  }
-
-  function setBackgroundImage(setting: undefined | string) {
-    setSettings((prev) => {
-      const item = { ...prev };
-      item.background.imageURL = setting;
-      return item;
-    });
-  }
-
-  function setBackgroundIframe(setting: undefined | string) {
-    setSettings((prev) => {
-      const item = { ...prev };
-      item.background.iframeURL = setting;
-      return item;
-    });
-  }
   return (
     <Window
       uuid={props.uuid}
@@ -91,16 +68,20 @@ export default function SettingsApp(props: { uuid: string }) {
               {!settings.forceTitleBarStyle && "undefined"}
             </span>
             <div className={css.buttonGroup}>
-              <button onClick={() => setForcedTitleBar(undefined)}>
+              <button
+                onClick={() => setSetting("forceTitleBarStyle", undefined)}
+              >
                 Not Forced
               </button>
-              <button onClick={() => setForcedTitleBar("default")}>
+              <button
+                onClick={() => setSetting("forceTitleBarStyle", "default")}
+              >
                 Force: Window
               </button>
-              <button onClick={() => setForcedTitleBar("mac")}>
+              <button onClick={() => setSetting("forceTitleBarStyle", "mac")}>
                 Force: macOS
               </button>
-              <button onClick={() => setForcedTitleBar("dex")}>
+              <button onClick={() => setSetting("forceTitleBarStyle", "dex")}>
                 Force: Dex
               </button>
             </div>
@@ -114,11 +95,15 @@ export default function SettingsApp(props: { uuid: string }) {
               {settings.background.type && settings.background.type.toString()}
             </span>
             <div className={css.buttonGroup}>
-              <button onClick={() => setBackgroundType("solidColor")}>
+              <button
+                onClick={() => setBackgroundSetting("type", "solidColor")}
+              >
                 Solid Color
               </button>
-              <button onClick={() => setBackgroundType("image")}>Image</button>
-              <button onClick={() => setBackgroundType("iframe")}>
+              <button onClick={() => setBackgroundSetting("type", "image")}>
+                Image
+              </button>
+              <button onClick={() => setBackgroundSetting("type", "iframe")}>
                 Iframe (website)
               </button>
             </div>
@@ -129,7 +114,7 @@ export default function SettingsApp(props: { uuid: string }) {
                   name=""
                   id=""
                   onChange={(e) => {
-                    setBackgroundColor(e.currentTarget.value);
+                    setBackgroundSetting("solidColor", e.currentTarget.value);
                   }}
                   value={settings.background.color}
                 />
@@ -142,7 +127,7 @@ export default function SettingsApp(props: { uuid: string }) {
                   name=""
                   id=""
                   onChange={(e) => {
-                    setBackgroundImage(e.currentTarget.value);
+                    setBackgroundSetting("imageURL", e.currentTarget.value);
                   }}
                   value={settings.background.imageURL}
                 />
@@ -155,12 +140,29 @@ export default function SettingsApp(props: { uuid: string }) {
                   name=""
                   id=""
                   onChange={(e) => {
-                    setBackgroundIframe(e.currentTarget.value);
+                    setBackgroundSetting("iframeURL", e.currentTarget.value);
                   }}
                   value={settings.background.imageURL}
                 />
               </>
             )}
+          </>
+        )}
+        {page === "taskbar" && (
+          <>
+            <h2>Taskbar Settings</h2>
+
+            <span>
+              Taskbar Style: {settings.taskbar && settings.taskbar.toString()}
+            </span>
+            <div className={css.buttonGroup}>
+              <button onClick={() => setSetting("taskbar", "default")}>
+                Default
+              </button>
+              <button onClick={() => setSetting("taskbar", "floating")}>
+                Floating
+              </button>
+            </div>
           </>
         )}
       </main>
@@ -184,6 +186,19 @@ const pages = [
   },
   {
     name: "Wallpaper",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
+        <g>
+          <path d="M1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0V2h1.5a.5.5 0 0 0 0-1zM11.5 1a.5.5 0 0 0 0 1H13v1.5a.5.5 0 0 0 1 0v-2a.5.5 0 0 0-.5-.5zM2 11.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 0-1H2zM14 11.5a.5.5 0 0 0-1 0V13h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5z" />
+          <g fillRule="evenodd" clipRule="evenodd">
+            <path d="M7.854 2.146a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708zM8.793 4.5 7.5 5.793 6.207 4.5 7.5 3.207zM4.854 5.146a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708zM4.5 8.793 3.207 7.5 4.5 6.207 5.793 7.5zM10.854 5.146a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708zm.939 2.354L10.5 8.793 9.207 7.5 10.5 6.207zM9.854 10.146l-2-2a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708zM7.5 11.793 6.207 10.5 7.5 9.207 8.793 10.5z" />
+          </g>
+        </g>
+      </svg>
+    ),
+  },
+  {
+    name: "Taskbar",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15">
         <g>

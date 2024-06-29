@@ -141,8 +141,10 @@
 }
 
 .window {
-  animation: fade-in 200ms ease;
-  transition: opacity 200ms ease, scale 200ms ease;
+  opacity: 0;
+  scale: 0.9;
+  animation: fade-in 200ms forwards ease;
+  /* transition: opacity 200ms ease, scale 200ms ease; */
 }
 
 @keyframes fade-in {
@@ -157,9 +159,20 @@
   }
 }
 
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.9;
+  }
+}
+
 .window.notVisible {
-  opacity: 0;
-  scale: 0.9;
+  animation: fade-out forwards 200ms ease;
   pointer-events: none;
 }
 
@@ -281,7 +294,6 @@
   border: none;
   border-radius: 2rem;
   border: 0.25rem solid var(--background-200);
-  
 }
 
 .window > .dexToolbar .group {

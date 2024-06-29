@@ -136,7 +136,7 @@ export default function Window(props: {
       }
 
       function dragMouseDown(e: MouseEvent) {
-        e.preventDefault();
+        // e.preventDefault();
         // get the mouse cursor position at startup:
         pos3 = e.clientX;
         pos4 = e.clientY;

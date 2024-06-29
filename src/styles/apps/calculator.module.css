@@ -1,0 +1,63 @@
+.container {
+  /* sizing */
+  height: 100%;
+
+  /* grid */
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  gap: 1rem;
+}
+
+.container * {
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+.display {
+  /* sizing */
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  /* flex */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  /* text */
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+
+  /* styling */
+  background-color: var(--background);
+  border-radius: 0.5rem;
+}
+
+.buttons {
+  /* grid */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 0.5rem;
+}
+
+.buttons > button {
+  /* text */
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+
+  /* styling */
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--background-200);
+  color: inherit;
+}
+
+.buttons > button.numberButton {
+  background-color: var(--background-300);
+}
+
+.buttons > button.equals {
+  background-color: var(--background-500);
+}
