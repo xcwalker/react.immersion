@@ -34,10 +34,12 @@ export default function ClockApp(props: { uuid: string; system?: boolean }) {
           name="Clock"
           containerClassName={css.advancedContainer}
           resizeable={false}
-          sizing={{min: {
-            width: "700px",
-            height: "125px"
-          }}}
+          sizing={{
+            min: {
+              width: "700px",
+              height: "125px",
+            },
+          }}
           titleBar={false}
         >
           <Advanced />
@@ -73,7 +75,12 @@ function Clock(props: {
       <span className={css.time}>{date.toLocaleTimeString()}</span>
       <span className={css.date}>{date.toLocaleDateString()}</span>
       {props.setShowAdvanced !== undefined && (
-        <button onClick={() => props.setShowAdvanced((prev) => !prev)}>
+        <button
+          onClick={() => {
+            if (props.setShowAdvanced === undefined) return;
+            props.setShowAdvanced((prev) => !prev);
+          }}
+        >
           Show More
         </button>
       )}
@@ -120,5 +127,14 @@ function Advanced() {
       <button onClick={() => copyTimeDate("LTS")}>Locale Time String</button>
       <button onClick={() => copyTimeDate("LDS")}>Locale Date String</button>
     </>
+  );
+}
+
+export function ClockAppIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+      <path d="M60 0C26.91 0 0 26.91 0 60s26.91 60 60 60 60-26.91 60-60S93.09 0 60 0zm0 8c28.766 0 52 23.234 52 52s-23.234 52-52 52S8 88.766 8 60 31.234 8 60 8z" />
+      <path d="M56 20v40h.006a4 4.09 0 0 0 1.998 3.457l-.004.008 34.641 20 4-6.93L64 57.69V20h-8z" />
+    </svg>
   );
 }

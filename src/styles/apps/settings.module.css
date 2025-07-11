@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
 }
 
 .sidebar > button {
@@ -22,7 +21,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
   /* styling */
   border-radius: 0.5rem;
@@ -40,7 +39,6 @@
   --_size: 1.55rem;
   height: var(--_size);
   width: var(--_size);
-  
 }
 
 .sidebar > button > .icon svg {
@@ -55,7 +53,304 @@
 
 .sidebar > button > .name {
   /* text */
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 600;
   line-height: 1;
+}
+
+.main {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.main .buttonGroup {
+  /* grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 0.5rem;
+}
+
+.buttonWithPreview {
+  /* sizing */
+  padding: 0.25rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  /* styling */
+  border: none;
+  color: inherit;
+  background-color: var(--background-400);
+  border-radius: 0.5rem;
+}
+
+.buttonWithPreview.active {
+  background-color: var(--background-600);
+}
+
+.buttonWithPreview:hover {
+  background-color: var(--background-500);
+}
+
+.buttonWithPreview .preview {
+  /* position */
+  position: relative;
+
+  /* sizing */
+  width: 100%;
+  aspect-ratio: 16/9;
+
+  /* styling */
+  background-color: var(--background-100);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.buttonWithPreview .text {
+  /* text */
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.previewWindow {
+  /* position */
+  position: absolute;
+  top: 25%;
+  left: -15%;
+
+  /* sizing */
+  width: 100%;
+  height: 100%;
+
+  /* styling */
+  border-radius: 0.5rem;
+  background-color: var(--background-200);
+}
+
+.previewWindow > .titleBar.default {
+  /* sizing */
+  width: 100%;
+  height: 30px;
+
+  /* flex */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.previewWindow > .titleBar.default .button {
+  /* sizing */
+  width: 3rem;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  /* styling */
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.previewWindow > .titleBar.default .icon {
+  /* sizing */
+  font-size: 1rem;
+}
+
+.previewWindow > .titleBar.mac {
+  /* sizing */
+  width: 100%;
+  height: 1.5rem;
+  padding-inline: 0.5rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.previewWindow > .titleBar.mac .button {
+  /* sizing */
+  --_size: 0.75rem;
+  width: var(--_size);
+  height: var(--_size);
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  /* styling */
+  border: none;
+  background-color: #00ca4e;
+  color: black;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+.previewWindow > .titleBar.mac .button.fullscreen {
+  background-color: #ffbd44;
+}
+
+.previewWindow > .titleBar.mac .button.close {
+  background-color: #ff605c;
+}
+
+.previewWindow > .titleBar.mac .button.close:hover {
+  background-color: darkred;
+}
+
+.previewWindow > .titleBar.mac .icon {
+  /* sizing */
+  font-size: 0.5rem;
+
+  /* hiding */
+  opacity: 0;
+  transition: opacity 100ms ease;
+}
+
+.previewWindow > .titleBar.mac .button:hover .icon {
+  opacity: 1;
+}
+
+.previewWindow > .titleBar.mac + .container {
+  /* sizing */
+  margin-top: 0;
+}
+
+.previewWindow > .container {
+  /* sizing */
+  height: 100%;
+  margin: 0.25rem;
+  padding: 0.75rem;
+
+  /* styling */
+  background-color: var(--background-100);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.previewWindow.dex {
+  /* position */
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  translate: -50% 0;
+
+  /* sizing */
+  width: 125%;
+  height: 100%;
+
+  /* styling */
+  border-radius: 0.5rem;
+  background-color: var(--background-200);
+}
+
+.previewWindow.dex .titleBar {
+  /* position */
+  position: relative;
+
+  /* sizing */
+  width: 100%;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.previewWindow.dex .titleBar > .button {
+  /* sizing */
+  width: 5rem;
+  height: 0.75rem;
+
+  /* styling */
+  background-color: var(--background-500);
+  border: none;
+  border-radius: 2rem;
+  border: 0.25rem solid var(--background-200);
+}
+
+.previewWindow.dex .group {
+  /* position */
+  position: absolute;
+  bottom: -0.25rem;
+
+  /* sizing */
+  /* padding: 0.35rem 0.6rem; */
+
+  /* flex */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.25rem;
+
+  /* styling */
+  background-color: var(--background-100);
+  outline: 0.25rem solid var(--background-200);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.window.fullscreen > .dexToolbar .group {
+  bottom: auto;
+  top: 0.25rem;
+}
+
+.previewWindow.dex .group .button {
+  /* sizing */
+  width: 2rem;
+  height: 1.5rem;
+
+  /* flex */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  /* styling */
+  border: none;
+  color: inherit;
+  pointer-events: auto;
+  background-color: transparent;
+}
+
+.previewWindow.dex .group .button:hover {
+  background-color: #00ca4e;
+}
+
+.previewWindow.dex .group .button.default:hover {
+  background-color: var(--background-500);
+}
+
+.previewWindow.dex .button.fullscreen:hover {
+  background-color: #ffbd44;
+}
+
+.previewWindow.dex .button.close:hover {
+  background-color: #ff605c;
+}
+
+.previewWindow.dex .button .icon {
+  /* sizing */
+  font-size: 0.65rem;
+}
+
+.previewWindow.dex > .container {
+  /* sizing */
+  margin-top: 0;
 }

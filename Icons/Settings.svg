@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="120"
+   height="120"
+   viewBox="0 0 120 120"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Settings.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="10.71856"
+     inkscape:cx="48.653922"
+     inkscape:cy="46.32152"
+     inkscape:window-width="3840"
+     inkscape:window-height="2054"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1"
+       radius="8"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path2"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:8;stroke-dasharray:none;stroke-opacity:1"
+       d="M 50.245934 0.60848197 A 8 8 0 0 0 45.306917 7.9995006 L 45.30674 14.386383 C 45.30674 18.804657 41.901908 23.629697 38.186191 26.00691 C 36.224263 27.262101 31.656412 26.66895 27.830119 24.459737 L 22.313677 21.275604 A 7.9998991 7.9998991 0 0 0 11.384299 24.204491 L 4.6916945 35.796724 A 8.0002017 8.0002017 0 0 0 7.6196043 46.724411 L 13.082617 49.878497 C 16.908882 52.087758 19.532785 56.609299 19.519226 60.000708 L 20.009653 66.120155 L 7.6187193 73.275616 A 8.0002018 8.0002018 0 0 0 4.6917426 84.202718 L 11.384609 95.796242 A 7.9998987 7.9998987 0 0 0 22.312687 98.72491 L 27.830352 95.539598 C 31.656645 93.330385 37.541482 93.858425 41.462719 95.878718 C 43.533168 96.945447 45.30691 101.19388 45.30691 105.61215 L 45.306733 111.99903 A 8 8 0 0 0 53.306729 120.0009 L 66.692914 119.99952 A 8 8 0 0 0 74.693083 112.0005 L 74.69326 105.61362 C 74.69326 101.19534 78.098092 96.370302 81.813809 93.993089 C 83.775737 92.737898 88.343588 93.331049 92.169881 95.540262 L 97.686322 98.724395 A 7.999898 7.999898 0 0 0 108.6157 95.795508 L 115.30831 84.203275 A 8.0002024 8.0002024 0 0 0 112.3804 73.275588 L 106.91738 70.121502 C 103.09112 67.912241 100.46721 63.3907 100.48077 59.999291 L 100.00798 53.867411 L 112.38128 46.724383 A 7.9997143 7.9997143 0 0 0 115.30826 35.797281 L 108.61539 24.203757 A 8.0003793 8.0003793 0 0 0 97.687312 21.275089 L 92.238999 24.420365 C 88.412573 26.629348 82.531055 26.093552 78.61359 24.065952 C 76.503224 22.973674 74.693649 18.713333 74.693649 14.29506 L 74.693267 8.0009641 A 8 8 0 0 0 66.693271 -0.00089612111 L 53.307086 0.00048148208 A 8 8 0 0 0 50.245934 0.60848197 z M 45.820381 35.437765 A 28.362019 28.362019 0 0 1 84.562234 45.820381 A 28.362019 28.362019 0 0 1 74.179619 84.562234 A 28.362019 28.362019 0 0 1 35.437766 74.179618 A 28.362019 28.362019 0 0 1 45.820381 35.437765 z "
+       transform="rotate(29.997562,59.999999,60)" />
+  </g>
+</svg>

@@ -80,14 +80,14 @@ export default function Window(props: {
   }
 
   useEffect(() => {
-    var windows = document.getElementsByClassName("draggable");
+    const windows = document.getElementsByClassName("draggable");
 
     for (let index = 0; index < windows.length; index++) {
       dragElement(windows[index] as HTMLElement);
     }
 
     function dragElement(element: HTMLElement) {
-      var pos1 = 0,
+      let pos1 = 0,
         pos2 = 0,
         pos3 = 0,
         pos4 = 0;
@@ -160,9 +160,9 @@ export default function Window(props: {
               element.offsetTop - pos2
             )
           ) +
-          "px, (100vh - " +
+          "px, (100vh - min(" +
           (element.getBoundingClientRect().height + 64) +
-          "px)";
+          "px, 100vh)))";
         element.style.left =
           "min(" +
           Math.max(
@@ -172,9 +172,11 @@ export default function Window(props: {
               element.offsetLeft - pos1
             )
           ) +
-          "px, (100vw - " +
+          "px, (" +
+          "100vw" +
+          " - min(" +
           element.getBoundingClientRect().width +
-          "px)";
+          "px, 100vw)))";
         pos3 = e.clientX;
         pos4 = e.clientY;
       }
@@ -410,7 +412,10 @@ export default function Window(props: {
         style={{
           width: props.sizing?.base ? props.sizing?.base?.width : "358px",
           height: props.sizing?.base ? props.sizing?.base?.height : "108px",
-          minWidth: props.sizing?.min ? props.sizing?.min?.width : "350px",
+          minWidth:
+            "min(100vw - 0.5rem," +
+            (props.sizing?.min ? props.sizing?.min?.width : "350px") +
+            ")",
           minHeight: props.sizing?.min ? props.sizing?.min?.height : "100px",
         }}
       >

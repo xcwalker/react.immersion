@@ -38,3 +38,16 @@ export default function AboutApp(props: { uuid: string }) {
     </Window>
   );
 }
+
+export function AboutAppIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+    <path
+      d="M51.908 35.424V29.03l4.596-4.595h6.993l4.595 4.595v6.394l-4.595 4.596h-6.993zm1.499 10.39h13.187v49.752H53.407z"
+    />
+    <path
+      d="M60 0C26.91 0 0 26.91 0 60s26.91 60 60 60 60-26.91 60-60S93.09 0 60 0zm0 8c28.766 0 52 23.234 52 52s-23.234 52-52 52S8 88.766 8 60 31.234 8 60 8z"
+    />
+    </svg>
+  );
+}

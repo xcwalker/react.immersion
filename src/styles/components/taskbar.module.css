@@ -69,7 +69,7 @@
 }
 
 .taskbarItem.clock {
-  width: 5rem;
+  width: 6rem;
 
   /* flex */
   display: flex;
