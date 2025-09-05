@@ -70,7 +70,12 @@
   gap: 0.5rem;
 }
 
-.buttonWithPreview {
+.titleBarNotForced {
+  grid-column: 1 / -1;
+}
+
+.buttonWithPreview,
+.buttonWithoutPreview {
   /* sizing */
   padding: 0.25rem;
 
@@ -86,15 +91,27 @@
   border-radius: 0.5rem;
 }
 
-.buttonWithPreview.active {
+.buttonWithoutPreview {
+  padding: 0.5rem 0.75rem;
+}
+
+.buttonWithPreview.active,
+.buttonWithoutPreview.active {
+  background-color: var(--accent-800);
+}
+
+.buttonWithPreview:hover,
+.buttonWithoutPreview:hover {
   background-color: var(--background-600);
 }
 
-.buttonWithPreview:hover {
-  background-color: var(--background-500);
+.buttonWithPreview.active:hover,
+.buttonWithoutPreview.active:hover {
+  background-color: var(--accent-600);
 }
 
-.buttonWithPreview .preview {
+.buttonWithPreview .preview,
+.buttonWithoutPreview .preview {
   /* position */
   position: relative;
 
@@ -108,7 +125,8 @@
   overflow: hidden;
 }
 
-.buttonWithPreview .text {
+.buttonWithPreview .text,
+.buttonWithoutPreview .text {
   /* text */
   font-size: 0.75rem;
   font-weight: 600;

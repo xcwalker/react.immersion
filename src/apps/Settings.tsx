@@ -13,6 +13,8 @@ export default function SettingsApp(props: { uuid: string }) {
   function setSetting(setting: string, newValue: unknown) {
     setSettings((prev) => {
       const item = { ...prev };
+
+      // @ts-expect-error crappy but is easier than fixing types
       item[setting] = newValue;
       return item;
     });
@@ -21,6 +23,8 @@ export default function SettingsApp(props: { uuid: string }) {
   function setSubSetting(main: string, setting: string, newValue: unknown) {
     setSettings((prev) => {
       const item = { ...prev };
+
+      // @ts-expect-error crappy but is easier than fixing types
       item[main][setting] = newValue;
       return item;
     });
@@ -63,26 +67,12 @@ export default function SettingsApp(props: { uuid: string }) {
           <>
             <h2>TitleBar Settings</h2>
             <div className={css.buttonGroup}>
-              <ButtonWithPreview
+              <ButtonWithoutPreview
                 onClick={() => setSetting("forceTitleBarStyle", undefined)}
                 text="Not Forced"
                 active={settings.forceTitleBarStyle === undefined}
-              >
-                <div className={css.previewWindow}>
-                  <div className={css.titleBar + " " + css.default}>
-                    <div className={css.button}>
-                      <GFIcon className={css.icon}>close</GFIcon>
-                    </div>
-                    <div className={css.button}>
-                      <GFIcon className={css.icon}>fullscreen</GFIcon>
-                    </div>
-                    <div className={css.button}>
-                      <GFIcon className={css.icon}>remove</GFIcon>
-                    </div>
-                  </div>
-                  <div className={css.container} />
-                </div>
-              </ButtonWithPreview>
+                className={css.titleBarNotForced}
+              />
               <ButtonWithPreview
                 onClick={() => setSetting("forceTitleBarStyle", "default")}
                 text="Force: Window"
@@ -267,13 +257,34 @@ function ButtonWithPreview(props: {
   children: ReactNode;
   text: string;
   active: boolean;
+  className?: string;
 }) {
   return (
     <button
-      className={css.buttonWithPreview + (props.active ? " " + css.active : "")}
+      className={
+        css.buttonWithPreview +
+        (props.className ? " " + props.className : "") +
+        (props.active ? " " + css.active : "")
+      }
       onClick={props.onClick}
     >
       <div className={css.preview}>{props.children}</div>
+      <span className={css.text}>{props.text}</span>
+    </button>
+  );
+}
+
+function ButtonWithoutPreview(props: {
+  onClick: () => void;
+  text: string;
+  active: boolean;
+  className?: string;
+}) {
+  return (
+    <button
+      className={css.buttonWithoutPreview + (props.className ? " " + props.className : "") + (props.active ? " " + css.active : "")}
+      onClick={props.onClick}
+    >
       <span className={css.text}>{props.text}</span>
     </button>
   );
